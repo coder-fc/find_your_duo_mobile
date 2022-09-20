@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { THEME } from '../../theme';
 
 export const styles = StyleSheet.create({
   container: {
@@ -34,5 +35,10 @@ export const styles = StyleSheet.create({
     paddingLeft: 32,
     paddingRight: 64,
     alignItems: 'flex-start'
+  },
+  emptyListText: {
+    fontSize: THEME.FONT_SIZE.MD,
+    color: THEME.COLORS.CAPTION_300,
+    fontFamily: THEME.FONT_FAMILY.SEMI_BOLD
   }
 });
