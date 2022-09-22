@@ -14,14 +14,16 @@ import logoImg from '../../assets/logo-nlw-esports.png'
 import { Background } from '../../components/Background';
 import { Heading } from '../../components/Heading';
 import { DuoCard, DuoCardProps} from '../../components/DuoCard';
+import { GameParams } from '../../@types/@navigation';
+import { DuoMatch } from '../../components/DuoMatch';
 
 import { THEME } from '../../theme';
-import { GameParams } from '../../@types/@navigation';
 import { styles } from './styles';
 
 export function Game(){
 
   const [duos, setDuos] = useState<DuoCardProps[]>([]);
+  const [discordDuoSelected, setDiscordDuoSelected] = useState('dsadsasda');
   
   const navigation = useNavigation()
   const route = useRoute();
@@ -82,7 +84,7 @@ export function Game(){
           )}
           horizontal
           style={styles.containerList}
-          contentContainerStyle={[styles.contentList, ]}
+          contentContainerStyle={styles.contentList}
           showsHorizontalScrollIndicator={false}
           ListEmptyComponent={() => (
             <Text style={styles.emptyListText}>
@@ -91,6 +93,11 @@ export function Game(){
           )}
         />
 
+        <DuoMatch 
+          visible={discordDuoSelected.length > 0}
+          discord="Pirce#420"
+          onClose={() => setDiscordDuoSelected('')}
+        />
       </SafeAreaView>
     </Background>
   );
